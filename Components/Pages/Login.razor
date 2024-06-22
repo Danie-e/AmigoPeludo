@@ -1,0 +1,87 @@
+﻿@page "/";
+@inject AmigoPeludo.Data.AmigoPeludoContext DB
+@using AmigoPeludo.Models
+@inject NavigationManager NavigationManager
+
+<PageTitle>Login</PageTitle>
+
+<div class="row">
+    <div class="text-center">
+        <h1>Intraverso</h1>
+        <br>
+        <h3>Transformando relações internas</h3>
+
+    </div>
+    <section class="col g-5 ">
+        <EditForm Model="usuario" OnValidSubmit="Entrar" FormName="login" Enhance class="row ">
+            <h2>Login</h2>
+            <DataAnnotationsValidator />
+            <ValidationSummary class="text-danger" />
+            <div class="mb-3">
+                <label for="nome" class="form-label">Nome:</label>
+                <InputText id="nome" @bind-Value="usuario.nome" class="form-control" />
+                <ValidationMessage For="() => usuario.nome" class="text-danger" />
+            </div>
+            <div class="mb-3">
+                <label for="senha" class="form-label">Digite aqui sua senha:</label>
+                <InputText id="senha" @bind-Value="usuario.senha" class="form-control" />
+                <ValidationMessage For="() => usuario.senha" class="text-danger" />
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+        </EditForm>
+    </section>
+
+    <section class="col g-5">
+        <EditForm method="post" Model="usuario" OnValidSubmit="AddUsuario" FormName="create" Enhance class="row">
+            <h2>Cadastro</h2>
+            <DataAnnotationsValidator />
+            <ValidationSummary class="text-danger" />
+            <div class="mb-3">
+                <label for="nome" class="form-label">Insira aqui seu nome:</label>
+                <InputText id="nome" @bind-Value="usuario.nome" class="form-control" />
+                <ValidationMessage For="() => usuario.nome" class="text-danger" />
+            </div>
+            <div class="mb-3">
+                <label for="datanascimento" class="form-label">Digite aqui sua data de nascimento:</label>
+                <InputDate id="datanascimento" @bind-Value="usuario.dataNascimento" class="form-control" />
+                <ValidationMessage For="() => usuario.dataNascimento" class="text-danger" />
+            </div>
+            <div class="mb-3">
+                <label for="senha" class="form-label">Digite aqui sua senha:</label>
+                <InputText id="senha" @bind-Value="usuario.senha" class="form-control" />
+                <ValidationMessage For="() => usuario.senha" class="text-danger" />
+            </div>
+            <button type="submit" class="btn btn-primary">Create</button>
+        </EditForm>
+    </section>
+</div>
+
+
+@code {
+
+    [SupplyParameterFromForm]
+    public Usuario usuario { get; set; } = new();
+
+    // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
+    public async Task AddUsuario()
+    {
+        UsuarioLogado user = UsuarioLogado.getInstance();
+        DB.Usuario.Add(usuario);
+        await DB.SaveChangesAsync();
+        user.EntrarPerfil(DB.Usuario.FirstOrDefault(a => a.nome.Equals(usuario.nome) && a.senha.Equals(usuario.senha)));
+        NavigationManager.NavigateTo("/paginaInicial");
+    }
+
+    public void Entrar()
+    {
+        Console.WriteLine(usuario);
+        var result = DB.Usuario.FirstOrDefault(a => a.nome.Equals(usuario.nome) && a.senha.Equals(usuario.senha));
+        if (result != null)
+        {
+            UsuarioLogado user=UsuarioLogado.getInstance();
+            user.EntrarPerfil(result);
+            NavigationManager.NavigateTo("/paginaInicial");
+        }
+    }
+
+}

@@ -1,0 +1,19 @@
+﻿@page "/paginaInicial"
+@rendermode InteractiveServer
+@using Microsoft.AspNetCore.Components.QuickGrid
+@inject AmigoPeludo.Data.AmigoPeludoContext DB
+@using AmigoPeludo.Models
+
+<PageTitle>Index</PageTitle>
+
+@foreach (var pet in DB.Pet)
+{
+    <div class="card" style="width: 18rem;">
+        <img src="@pet.foto" class="card-img-top" alt="@pet.nome">
+        <div class="card-body">
+            <h5 class="card-title">@pet.nome</h5>
+            <p class="card-text">@pet.historia</p>
+            <a href="@($"pets/details?id={pet.id}")">Details</a> 
+        </div>
+    </div>
+}

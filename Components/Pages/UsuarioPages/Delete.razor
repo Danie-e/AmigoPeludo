@@ -1,0 +1,61 @@
+﻿@page "/usuarios/delete"
+@inject AmigoPeludo.Data.AmigoPeludoContext DB
+@using AmigoPeludo.Models
+@inject NavigationManager NavigationManager
+@using Microsoft.EntityFrameworkCore
+
+<PageTitle>Delete</PageTitle>
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Usuario</h4>
+    <hr />
+    @if (usuario is null)
+    {
+        <p><em>Loading...</em></p>
+    }
+    else {
+        <dl class="row">
+            <dt class="col-sm-2">nome</dt>
+            <dd class="col-sm-10">@usuario.nome</dd>
+        </dl>
+        <dl class="row">
+            <dt class="col-sm-2">dataNascimento</dt>
+            <dd class="col-sm-10">@usuario.dataNascimento</dd>
+        </dl>
+        <dl class="row">
+            <dt class="col-sm-2">senha</dt>
+            <dd class="col-sm-10">@usuario.senha</dd>
+        </dl>
+        <EditForm method="post" Model="usuario" OnValidSubmit="DeleteUsuario" FormName="delete" Enhance>
+            <button type="submit" class="btn btn-danger" disabled="@(usuario is null)">Delete</button> |
+            <a href="/usuarios">Back to List</a>
+        </EditForm>
+    }
+</div>
+
+@code {
+    Usuario? usuario;
+
+    [SupplyParameterFromQuery]
+    public int id { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        usuario = await DB.Usuario.FirstOrDefaultAsync(m => m.id == id);
+
+        if (usuario is null)
+        {
+            NavigationManager.NavigateTo("notfound");
+        }
+    }
+
+    public async Task DeleteUsuario()
+    {
+        DB.Usuario.Remove(usuario!);
+        await DB.SaveChangesAsync();
+        NavigationManager.NavigateTo("/usuarios");
+    }
+}

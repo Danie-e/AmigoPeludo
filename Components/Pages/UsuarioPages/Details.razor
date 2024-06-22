@@ -1,0 +1,49 @@
+﻿@page "/usuarios/details"
+@inject AmigoPeludo.Data.AmigoPeludoContext DB
+@using AmigoPeludo.Models
+@inject NavigationManager NavigationManager
+@using Microsoft.EntityFrameworkCore
+
+<PageTitle>Details</PageTitle>
+
+<h1>Details</h1>
+
+<div>
+    <h4>Usuario</h4>
+    <hr />
+    @if (usuario is null)
+    {
+        <p><em>Loading...</em></p>
+    }
+    else {
+        <dl class="row">
+            <dt class="col-sm-2">nome</dt>
+            <dd class="col-sm-10">@usuario.nome</dd>
+            <dt class="col-sm-2">dataNascimento</dt>
+            <dd class="col-sm-10">@usuario.dataNascimento</dd>
+            <dt class="col-sm-2">senha</dt>
+            <dd class="col-sm-10">@usuario.senha</dd>
+        </dl>
+        <div>
+            <a href="@($"/usuarios/edit?id={usuario.id}")">Edit</a> |
+            <a href="@($"/usuarios")">Back to List</a>
+        </div>
+    }
+</div>
+
+@code {
+    Usuario? usuario;
+
+    [SupplyParameterFromQuery]
+    public int id { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        usuario = await DB.Usuario.FirstOrDefaultAsync(m => m.id == id);
+
+        if (usuario is null)
+        {
+            NavigationManager.NavigateTo("notfound");
+        }
+    }
+}

@@ -1,0 +1,53 @@
+﻿@page "/usuarios/create"
+@inject AmigoPeludo.Data.AmigoPeludoContext DB
+@using AmigoPeludo.Models
+@inject NavigationManager NavigationManager
+
+<PageTitle>Create</PageTitle>
+
+<h1>Create</h1>
+
+<h4>Usuario</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <EditForm method="post" Model="Usuario" OnValidSubmit="AddUsuario" FormName="create" Enhance>
+            <DataAnnotationsValidator />
+            <ValidationSummary class="text-danger" />
+            <div class="mb-3">
+                <label for="nome" class="form-label">nome:</label> 
+                <InputText id="nome" @bind-Value="Usuario.nome" class="form-control" /> 
+                <ValidationMessage For="() => Usuario.nome" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="datanascimento" class="form-label">dataNascimento:</label> 
+                <InputDate id="datanascimento" @bind-Value="Usuario.dataNascimento" class="form-control" /> 
+                <ValidationMessage For="() => Usuario.dataNascimento" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="senha" class="form-label">senha:</label> 
+                <InputText id="senha" @bind-Value="Usuario.senha" class="form-control" /> 
+                <ValidationMessage For="() => Usuario.senha" class="text-danger" /> 
+            </div>        
+            <button type="submit" class="btn btn-primary">Create</button>
+        </EditForm>
+    </div>
+</div>
+
+<div>
+    <a href="/usuarios">Back to List</a>
+</div>
+
+@code {
+
+    [SupplyParameterFromForm]
+    public Usuario Usuario { get; set; } = new();
+
+    // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
+    public async Task AddUsuario()
+    {
+        DB.Usuario.Add(Usuario);
+        await DB.SaveChangesAsync();
+        NavigationManager.NavigateTo("/usuarios");
+    }
+}

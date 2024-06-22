@@ -1,0 +1,31 @@
+﻿@page "/pets"
+@using Microsoft.AspNetCore.Components.QuickGrid
+@inject AmigoPeludo.Data.AmigoPeludoContext DB
+@using AmigoPeludo.Models
+
+<PageTitle>Index</PageTitle>
+
+<h1>Index</h1>
+
+<p>
+    <a href="pets/create">Create New</a>
+</p>
+
+<QuickGrid Class="table" Items="DB.Pet">
+    <PropertyColumn Property="pet => pet.nome" />
+    <PropertyColumn Property="pet => pet.foto" />
+    <PropertyColumn Property="pet => pet.dataNascimento" />
+    <PropertyColumn Property="pet => pet.especie" />
+    <PropertyColumn Property="pet => pet.raca" />
+    <PropertyColumn Property="pet => pet.cor" />
+    <PropertyColumn Property="pet => pet.sexo" />
+    <PropertyColumn Property="pet => pet.historia" />
+    <PropertyColumn Property="pet => pet.idUsuario" />
+    <PropertyColumn Property="pet => pet.adocao" />
+
+    <TemplateColumn Context="pet">
+        <a href="@($"pets/edit?id={pet.id}")">Edit</a> |
+        <a href="@($"pets/details?id={pet.id}")">Details</a> |
+        <a href="@($"pets/delete?id={pet.id}")">Delete</a>
+    </TemplateColumn>
+</QuickGrid>

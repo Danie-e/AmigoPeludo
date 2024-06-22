@@ -1,0 +1,24 @@
+﻿@page "/usuarios"
+@using Microsoft.AspNetCore.Components.QuickGrid
+@inject AmigoPeludo.Data.AmigoPeludoContext DB
+@using AmigoPeludo.Models
+
+<PageTitle>Index</PageTitle>
+
+<h1>Index</h1>
+
+<p>
+    <a href="usuarios/create">Create New</a>
+</p>
+
+<QuickGrid Class="table" Items="DB.Usuario">
+    <PropertyColumn Property="usuario => usuario.nome" />
+    <PropertyColumn Property="usuario => usuario.dataNascimento" />
+    <PropertyColumn Property="usuario => usuario.senha" />
+
+    <TemplateColumn Context="usuario">
+        <a href="@($"usuarios/edit?id={usuario.id}")">Edit</a> |
+        <a href="@($"usuarios/details?id={usuario.id}")">Details</a> |
+        <a href="@($"usuarios/delete?id={usuario.id}")">Delete</a>
+    </TemplateColumn>
+</QuickGrid>

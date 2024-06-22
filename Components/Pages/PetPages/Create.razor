@@ -1,0 +1,84 @@
+﻿@page "/pets/create"
+@inject AmigoPeludo.Data.AmigoPeludoContext DB
+@using AmigoPeludo.Models
+@inject NavigationManager NavigationManager
+
+<PageTitle>Registra Pet</PageTitle>
+
+<h1>Registra Pet</h1>
+
+<h4>Pet</h4>
+<hr />
+<div class="row">
+    <div class="col-md-10">
+        <EditForm method="post" Model="pet" OnValidSubmit="AddPet" FormName="create" Enhance>
+            <DataAnnotationsValidator />
+            <ValidationSummary class="text-danger" />
+            <div class="mb-3">
+                <label for="nome" class="form-label">Nome:</label> 
+                <InputText id="nome" @bind-Value="pet.nome" class="form-control" /> 
+                <ValidationMessage For="() => pet.nome" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="foto" class="form-label">URL foto:</label> 
+                <InputText id="foto" @bind-Value="pet.foto" class="form-control" /> 
+                <ValidationMessage For="() => pet.foto" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="datanascimento" class="form-label">Data Nascimento:</label> 
+                <InputDate id="datanascimento" @bind-Value="pet.dataNascimento" class="form-control" /> 
+                <ValidationMessage For="() => pet.dataNascimento" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="especie" class="form-label">Especie:</label> 
+                <InputText id="especie" @bind-Value="pet.especie" class="form-control" /> 
+                <ValidationMessage For="() => pet.especie" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="raca" class="form-label">Raça:</label> 
+                <InputText id="raca" @bind-Value="pet.raca" class="form-control" /> 
+                <ValidationMessage For="() => pet.raca" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="cor" class="form-label">Cor:</label> 
+                <InputText id="cor" @bind-Value="pet.cor" class="form-control" /> 
+                <ValidationMessage For="() => pet.cor" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="sexo" class="form-label">Sexo:</label> 
+                <InputText id="sexo" @bind-Value="pet.sexo" class="form-control" /> 
+                <ValidationMessage For="() => pet.sexo" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="historia" class="form-label">Historia:</label> 
+                <InputText id="historia" @bind-Value="pet.historia" class="form-control" /> 
+                <ValidationMessage For="() => pet.historia" class="text-danger" /> 
+            </div>         
+            <div class="mb-3">
+                <label for="adocao" class="form-label">Para Adoçao?</label> 
+                <InputCheckbox id="adocao" @bind-Value="pet.adocao" class="form-check-input" /> 
+                <ValidationMessage For="() => pet.adocao" class="text-danger" /> 
+            </div>        
+            <button type="submit" class="btn btn-primary">Registrar pet</button>
+        </EditForm>
+    </div>
+</div>
+
+<div>
+    <a href="/paginaInicial">Voltar a pagina inicial</a>
+</div>
+
+@code {
+
+    [SupplyParameterFromForm]
+    public Pet pet { get; set; } = new();
+
+    public async Task AddPet()
+    {
+        UsuarioLogado user = UsuarioLogado.getInstance();
+        pet.idUsuario = user.id;
+        DB.Pet.Add(pet);
+        await DB.SaveChangesAsync();
+        NavigationManager.NavigateTo("/pets");
+    }
+}

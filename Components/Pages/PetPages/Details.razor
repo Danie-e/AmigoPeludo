@@ -1,0 +1,63 @@
+﻿@page "/pets/details"
+@inject AmigoPeludo.Data.AmigoPeludoContext DB
+@using AmigoPeludo.Models
+@inject NavigationManager NavigationManager
+@using Microsoft.EntityFrameworkCore
+
+<PageTitle>Details</PageTitle>
+
+<h1>Details</h1>
+
+<div>
+    <h4>Pet</h4>
+    <hr />
+    @if (pet is null)
+    {
+        <p><em>Loading...</em></p>
+    }
+    else {
+        <dl class="row">
+            <dt class="col-sm-2">nome</dt>
+            <dd class="col-sm-10">@pet.nome</dd>
+            <dt class="col-sm-2">foto</dt>
+            <dd class="col-sm-10">@pet.foto</dd>
+            <dt class="col-sm-2">dataNascimento</dt>
+            <dd class="col-sm-10">@pet.dataNascimento</dd>
+            <dt class="col-sm-2">especie</dt>
+            <dd class="col-sm-10">@pet.especie</dd>
+            <dt class="col-sm-2">raca</dt>
+            <dd class="col-sm-10">@pet.raca</dd>
+            <dt class="col-sm-2">cor</dt>
+            <dd class="col-sm-10">@pet.cor</dd>
+            <dt class="col-sm-2">sexo</dt>
+            <dd class="col-sm-10">@pet.sexo</dd>
+            <dt class="col-sm-2">historia</dt>
+            <dd class="col-sm-10">@pet.historia</dd>
+            <dt class="col-sm-2">idUsuario</dt>
+            <dd class="col-sm-10">@pet.idUsuario</dd>
+            <dt class="col-sm-2">adocao</dt>
+            <dd class="col-sm-10">@pet.adocao</dd>
+        </dl>
+        <div>
+            <a href="@($"/pets/edit?id={pet.id}")">Edit</a> |
+            <a href="@($"/pets")">Back to List</a>
+        </div>
+    }
+</div>
+
+@code {
+    Pet? pet;
+
+    [SupplyParameterFromQuery]
+    public int id { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        pet = await DB.Pet.FirstOrDefaultAsync(m => m.id == id);
+
+        if (pet is null)
+        {
+            NavigationManager.NavigateTo("notfound");
+        }
+    }
+}
