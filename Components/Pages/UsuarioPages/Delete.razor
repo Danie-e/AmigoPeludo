@@ -4,17 +4,17 @@
 @inject NavigationManager NavigationManager
 @using Microsoft.EntityFrameworkCore
 
-<PageTitle>Delete</PageTitle>
+<PageTitle>Deletar Usuario</PageTitle>
 
-<h1>Delete</h1>
+<h1>Deletar Usuario</h1>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Tem certeza que desela deletar sua conta?</h3>
 <div>
     <h4>Usuario</h4>
     <hr />
     @if (usuario is null)
     {
-        <p><em>Loading...</em></p>
+        <p><em>Usuario não encontrado...</em></p>
     }
     else {
         <dl class="row">
@@ -31,7 +31,7 @@
         </dl>
         <EditForm method="post" Model="usuario" OnValidSubmit="DeleteUsuario" FormName="delete" Enhance>
             <button type="submit" class="btn btn-danger" disabled="@(usuario is null)">Delete</button> |
-            <a href="/usuarios">Back to List</a>
+            <a href="/paginaInicial">Voltar para pagina inicial</a>
         </EditForm>
     }
 </div>
@@ -55,7 +55,14 @@
     public async Task DeleteUsuario()
     {
         DB.Usuario.Remove(usuario!);
+        foreach(Pet pet in DB.Pet)
+        {
+            if (pet.idUsuario == usuario.id)
+            {
+                DB.Pet.Remove(pet);
+            }
+        }
         await DB.SaveChangesAsync();
-        NavigationManager.NavigateTo("/usuarios");
+        NavigationManager.NavigateTo("/");
     }
 }

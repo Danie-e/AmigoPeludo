@@ -5,6 +5,14 @@
       "PackagePath": "staticwebassets\\AmigoPeludo.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\Daniela\\source\\repos\\AmigoPeludo\\wwwroot\\account_circle.png",
+      "PackagePath": "staticwebassets\\account_circle.png"
+    },
+    {
+      "Id": "C:\\Users\\Daniela\\source\\repos\\AmigoPeludo\\wwwroot\\account_circle.svg",
+      "PackagePath": "staticwebassets\\account_circle.svg"
+    },
+    {
       "Id": "C:\\Users\\Daniela\\source\\repos\\AmigoPeludo\\wwwroot\\app.css",
       "PackagePath": "staticwebassets\\app.css"
     },

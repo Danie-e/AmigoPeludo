@@ -1,4 +1,4 @@
-﻿@page "/paginaInicial"
+﻿@page "/meusPets"
 @rendermode InteractiveServer
 @using Microsoft.AspNetCore.Components.QuickGrid
 @inject AmigoPeludo.Data.AmigoPeludoContext DB
@@ -9,19 +9,20 @@
   <div class="d-flex gap-3">
 @foreach (var pet in DB.Pet)
 {
-    if(pet.adocao){
-    <div class="card" style="width: 18rem;">
-        <img src="@pet.foto" class="card-img-top" alt="@pet.nome">
+    if (pet.idUsuario==user.id) {
+        <div class="card" style="width: 18rem;">
+            <img src="@pet.foto" class="card-img-top" alt="@pet.nome">
         <div class="card-body">
             <h5 class="card-title">@pet.nome</h5>
             <p class="card-text">@pet.historia</p>
-            <a href="@($"pets/details?id={pet.id}")"><button class="btn btn-primary">Ver detalhes</button> </a>
-            <a href="@($"pets/adote?id={pet.id}")"> <button class="btn btn-success">Adotar @pet.nome</button> </a>
+            <a href="@($"pets/details?id={pet.id}")">Ver detalhes</a>
         </div>
     </div>
     }
 }
 </div>
+
+
 @code{
-   
+    UsuarioLogado user = UsuarioLogado.getInstance();
 }

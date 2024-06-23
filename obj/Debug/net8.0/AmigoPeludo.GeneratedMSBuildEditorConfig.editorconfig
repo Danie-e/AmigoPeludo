@@ -38,52 +38,56 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xMb2dpbi5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Daniela/source/repos/AmigoPeludo/Components/Pages/MeusPets.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xNZXVzUGV0cy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Daniela/source/repos/AmigoPeludo/Components/Pages/PaginaInicial.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xQYWdpbmFJbmljaWFsLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Daniela/source/repos/AmigoPeludo/Components/Pages/PetPages/Create.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xQZXRQYWdlc1xDcmVhdGUucmF6b3I=
+[C:/Users/Daniela/source/repos/AmigoPeludo/Components/Pages/PetPages/AdotarPet.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xQZXRQYWdlc1xBZG90YXJQZXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Daniela/source/repos/AmigoPeludo/Components/Pages/PetPages/CreatePet.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xQZXRQYWdlc1xDcmVhdGVQZXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Daniela/source/repos/AmigoPeludo/Components/Pages/PetPages/Delete.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xQZXRQYWdlc1xEZWxldGUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Daniela/source/repos/AmigoPeludo/Components/Pages/PetPages/Details.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xQZXRQYWdlc1xEZXRhaWxzLnJhem9y
+[C:/Users/Daniela/source/repos/AmigoPeludo/Components/Pages/PetPages/DetailsPet.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xQZXRQYWdlc1xEZXRhaWxzUGV0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Daniela/source/repos/AmigoPeludo/Components/Pages/PetPages/Edit.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xQZXRQYWdlc1xFZGl0LnJhem9y
+[C:/Users/Daniela/source/repos/AmigoPeludo/Components/Pages/PetPages/EditarPet.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xQZXRQYWdlc1xFZGl0YXJQZXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Daniela/source/repos/AmigoPeludo/Components/Pages/PetPages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xQZXRQYWdlc1xJbmRleC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Daniela/source/repos/AmigoPeludo/Components/Pages/UsuarioPages/Create.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xVc3VhcmlvUGFnZXNcQ3JlYXRlLnJhem9y
+[C:/Users/Daniela/source/repos/AmigoPeludo/Components/Pages/UsuarioPages/CreateUsuario.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xVc3VhcmlvUGFnZXNcQ3JlYXRlVXN1YXJpby5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Daniela/source/repos/AmigoPeludo/Components/Pages/UsuarioPages/Delete.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xVc3VhcmlvUGFnZXNcRGVsZXRlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Daniela/source/repos/AmigoPeludo/Components/Pages/UsuarioPages/Details.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xVc3VhcmlvUGFnZXNcRGV0YWlscy5yYXpvcg==
+[C:/Users/Daniela/source/repos/AmigoPeludo/Components/Pages/UsuarioPages/DetailsUsuario.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xVc3VhcmlvUGFnZXNcRGV0YWlsc1VzdWFyaW8ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Daniela/source/repos/AmigoPeludo/Components/Pages/UsuarioPages/Edit.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xVc3VhcmlvUGFnZXNcRWRpdC5yYXpvcg==
+[C:/Users/Daniela/source/repos/AmigoPeludo/Components/Pages/UsuarioPages/EditarUsuario.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xVc3VhcmlvUGFnZXNcRWRpdGFyVXN1YXJpby5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Daniela/source/repos/AmigoPeludo/Components/Pages/UsuarioPages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xVc3VhcmlvUGFnZXNcSW5kZXgucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Daniela/source/repos/AmigoPeludo/Components/Pages/Weather.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xXZWF0aGVyLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Daniela/source/repos/AmigoPeludo/Components/Routes.razor]

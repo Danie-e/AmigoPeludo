@@ -79,6 +79,6 @@
         pet.idUsuario = user.id;
         DB.Pet.Add(pet);
         await DB.SaveChangesAsync();
-        NavigationManager.NavigateTo("/pets");
+        NavigationManager.NavigateTo("paginaInicial");
     }
 }

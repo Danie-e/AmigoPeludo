@@ -1,0 +1,64 @@
+﻿@page "/pets/details"
+@inject AmigoPeludo.Data.AmigoPeludoContext DB
+@using AmigoPeludo.Models
+@inject NavigationManager NavigationManager
+@using Microsoft.EntityFrameworkCore
+
+<PageTitle>Detalhes </PageTitle>
+
+<h1>Detalhes</h1>
+
+<div>
+    <h4>Pet</h4>
+    <hr />
+    @if (pet is null)
+    {
+        <p><em>Pet não encontrado</em></p>
+    }
+    else {
+        <ul class="row">
+            <li >Nome: @pet.nome</li>
+            <li >Data de Nascimento: @pet.dataNascimento</li>
+            <li >Especie: @pet.especie</li>
+            <li >Raca: @pet.raca</li>
+            <li >Cor: @pet.cor</li>
+            <li >Sexo: @pet.sexo</li>
+            <li >Historia: @pet.historia</li>
+            <li >@adocao</li>
+        </ul>
+        <div>
+            @if(pet.idUsuario==user.id){
+            <a href="@($"/pets/edit?id={pet.id}")">Editar Pet</a>
+            }
+            <br />
+            <a href="@($"/paginaInicial")">Voltar para pagina Inicial</a>
+        </div>
+    }
+</div>
+ 
+
+@code {
+    UsuarioLogado user = UsuarioLogado.getInstance();
+    string adocao = string.Empty;
+
+    [SupplyParameterFromQuery]
+    public int id { get; set; }
+
+    [SupplyParameterFromForm]
+    public Pet? pet { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        pet ??= await DB.Pet.FirstOrDefaultAsync(m => m.id == id);
+
+        if (pet is null)
+        {
+            NavigationManager.NavigateTo("notfound");
+        }else
+        {
+         adocao = pet.adocao ? "Este pet está a procura de um lar." : "Esse pet já possue um lar";
+        
+        }
+    }
+
+}

@@ -1,0 +1,90 @@
+﻿@page "/pets/adote"
+@inject AmigoPeludo.Data.AmigoPeludoContext DB
+@using AmigoPeludo.Models
+@inject NavigationManager NavigationManager
+@using Microsoft.EntityFrameworkCore
+
+<PageTitle>Adoção </PageTitle>
+
+<h1>Adote</h1>
+
+<div>
+    <hr />
+    @if (pet is null)
+    {
+        <p><em>Pet não encontrado</em></p>
+    }
+    else
+    {
+        <h3>@pet.nome</h3>
+
+        <img src="@pet.foto"/>
+        <div>
+            @if (pet.idUsuario == user.id)
+            {
+                <a href="@($"/pets/edit?id={pet.id}")">Editar Pet</a>
+            }
+            else
+            {
+                <br />
+                <EditForm method="post" Model="pet" OnValidSubmit="AdotarPets" FormName="adote" Enhance>
+
+                <button type="submit" class="btn btn-success">Adotar @pet.nome</button>
+                </EditForm>
+            }
+            <br />
+            <a href="@($"/paginaInicial")">Voltar para pagina Inicial</a>
+        </div>
+    }
+</div>
+
+
+@code {
+    UsuarioLogado user = UsuarioLogado.getInstance();
+    string adocao = string.Empty;
+
+    [SupplyParameterFromQuery]
+    public int id { get; set; }
+
+    [SupplyParameterFromForm]
+    public Pet? pet { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        pet ??= await DB.Pet.FirstOrDefaultAsync(m => m.id == id);
+
+        if (pet is null)
+        {
+            NavigationManager.NavigateTo("notfound");
+        }
+        else
+        {
+            adocao = pet.adocao ? "Este pet está a procura de um lar." : "Esse pet já possue um lar";
+
+        }
+    }
+    public async void AdotarPets()
+    {
+        
+        pet.idUsuario = user.id;
+        pet.adocao = false;
+        DB.Attach(pet).State = EntityState.Modified;
+        try
+        {
+            await DB.SaveChangesAsync();
+        }
+        catch (DbUpdateConcurrencyException)
+        {
+            if (pet is null)
+            {
+                NavigationManager.NavigateTo("notfound");
+            }
+            else
+            {
+            }
+        }
+
+        NavigationManager.NavigateTo("/meusPets");
+    }
+
+}

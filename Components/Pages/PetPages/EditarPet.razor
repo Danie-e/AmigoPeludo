@@ -1,0 +1,132 @@
+﻿@page "/Pets/edit"
+@inject AmigoPeludo.Data.AmigoPeludoContext DB
+@using AmigoPeludo.Models
+@inject NavigationManager NavigationManager
+@using Microsoft.EntityFrameworkCore
+
+<PageTitle>Editar Pet</PageTitle>
+
+<h1>Editar informaçoes osbre o Pet</h1>
+
+<h4>Pet</h4>
+<hr />
+@if (pet is null)
+{
+    <p><em>Pet não encontrado...</em></p>
+}
+else
+{
+    <div class="row">
+        <div class="col-md-4">
+            <EditForm method="post" Model="pet" OnValidSubmit="UpdatePet" FormName="edit" Enhance>
+                <DataAnnotationsValidator />
+                <ValidationSummary />
+                <input type="hidden" name="Pet.id" value="@pet.id" />
+                <div class="mb-3">
+                    <label for="nome" class="form-label">Nome:</label>
+                    <InputText id="nome" @bind-Value="pet.nome" class="form-control" />
+                    <ValidationMessage For="() => pet.nome" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="foto" class="form-label">URL da foto:</label>
+                    <InputText id="foto" @bind-Value="pet.foto" class="form-control" />
+                    <ValidationMessage For="() => pet.foto" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="datanascimento" class="form-label">Data de Nascimento:</label>
+                    <InputDate id="datanascimento" @bind-Value="pet.dataNascimento" class="form-control" />
+                    <ValidationMessage For="() => pet.dataNascimento" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="especie" class="form-label">Especie:</label>
+                    <InputText id="especie" @bind-Value="pet.especie" class="form-control" />
+                    <ValidationMessage For="() => pet.especie" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="raca" class="form-label">Raça:</label>
+                    <InputText id="raca" @bind-Value="pet.raca" class="form-control" />
+                    <ValidationMessage For="() => pet.raca" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="cor" class="form-label">Cor:</label>
+                    <InputText id="cor" @bind-Value="pet.cor" class="form-control" />
+                    <ValidationMessage For="() => pet.cor" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="sexo" class="form-label">Sexo:</label>
+                    <InputText id="sexo" @bind-Value="pet.sexo" class="form-control" />
+                    <ValidationMessage For="() => pet.sexo" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="historia" class="form-label">Historia:</label>
+                    <InputText id="historia" @bind-Value="pet.historia" class="form-control" />
+                    <ValidationMessage For="() => pet.historia" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="adocao" class="form-label">Para adoção:</label>
+                    <InputCheckbox id="adocao" @bind-Value="pet.adocao" class="form-check-input" />
+                    <ValidationMessage For="() => pet.adocao" class="text-danger" />
+                </div>
+                <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+            </EditForm>
+        </div>
+    </div>
+    <a href="/pets/delete?id=@pet.id"><button type="button" class="btn btn-danger">Apagar informações sobre o pet</button></a>
+    <br />
+}
+
+<div>
+  
+    <a href="/paginaInicial">Voltar para pagina inicial</a>
+    <br />
+</div>
+
+@code {
+    [SupplyParameterFromQuery]
+    public int id { get; set; }
+
+    [SupplyParameterFromForm]
+    public Pet? pet { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        pet ??= await DB.Pet.FirstOrDefaultAsync(m => m.id == id);
+
+        if (pet is null)
+        {
+            NavigationManager.NavigateTo("notfound");
+        }
+    }
+
+    // To protect from overposting attacks, enable the specific properties you want to bind to.
+    // For more details, see https://aka.ms/RazorPagesCRUD.
+    public async Task UpdatePet()
+    {
+        UsuarioLogado user = UsuarioLogado.getInstance();
+        pet.idUsuario = user.id;
+        DB.Attach(pet!).State = EntityState.Modified;
+
+        try
+        {
+            await DB.SaveChangesAsync();
+        }
+        catch (DbUpdateConcurrencyException)
+        {
+            if (!PetExists(pet!.id))
+            {
+                NavigationManager.NavigateTo("notfound");
+            }
+            else
+            {
+                throw;
+            }
+        }
+
+        NavigationManager.NavigateTo("/paginaInicial");
+    }
+
+    bool PetExists(int id)
+    {
+        return DB.Pet.Any(e => e.id == id);
+    }
+}

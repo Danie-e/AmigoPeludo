@@ -243,6 +243,7 @@ C:\Users\Daniela\source\repos\AmigoPeludo\obj\Debug\net8.0\AmigoPeludo.AssemblyI
 C:\Users\Daniela\source\repos\AmigoPeludo\obj\Debug\net8.0\AmigoPeludo.AssemblyInfo.cs
 C:\Users\Daniela\source\repos\AmigoPeludo\obj\Debug\net8.0\AmigoPeludo.csproj.CoreCompileInputs.cache
 C:\Users\Daniela\source\repos\AmigoPeludo\obj\Debug\net8.0\AmigoPeludo.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Daniela\source\repos\AmigoPeludo\obj\Debug\net8.0\AmigoPeludo.sourcelink.json
 C:\Users\Daniela\source\repos\AmigoPeludo\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\Daniela\source\repos\AmigoPeludo\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\Daniela\source\repos\AmigoPeludo\obj\Debug\net8.0\staticwebassets\msbuild.AmigoPeludo.Microsoft.AspNetCore.StaticWebAssets.props
