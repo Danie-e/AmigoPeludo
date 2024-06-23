@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AmigoPeludo")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+639f8a4bf45ab57095e7bb7a02f60001ac28a718")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+19ab94500b326d16ea3f172081ba0372caa713af")]
 [assembly: System.Reflection.AssemblyProductAttribute("AmigoPeludo")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AmigoPeludo")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

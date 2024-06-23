@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "AvYgL1XtFnwNS0R+ClgMsiZ4G698H/4s7byvKm+f/jE=",
+  "Hash": "WXnev7GF1ip8sRrplf7OTmToFFha09kDXPvrCzDOOb4=",
   "Source": "AmigoPeludo",
   "BasePath": "_content/AmigoPeludo",
   "Mode": "Default",
@@ -112,25 +112,6 @@
       "OriginalItemSpec": "wwwroot\\account_circle.png"
     },
     {
-      "Identity": "C:\\Users\\Daniela\\source\\repos\\AmigoPeludo\\wwwroot\\account_circle.svg",
-      "SourceId": "AmigoPeludo",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Daniela\\source\\repos\\AmigoPeludo\\wwwroot\\",
-      "BasePath": "_content/AmigoPeludo",
-      "RelativePath": "account_circle.svg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\account_circle.svg"
-    },
-    {
       "Identity": "C:\\Users\\Daniela\\source\\repos\\AmigoPeludo\\wwwroot\\app.css",
       "SourceId": "AmigoPeludo",
       "SourceType": "Discovered",
@@ -205,6 +186,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.png"
+    },
+    {
+      "Identity": "C:\\Users\\Daniela\\source\\repos\\AmigoPeludo\\wwwroot\\pets.png",
+      "SourceId": "AmigoPeludo",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Daniela\\source\\repos\\AmigoPeludo\\wwwroot\\",
+      "BasePath": "_content/AmigoPeludo",
+      "RelativePath": "pets.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\pets.png"
     }
   ]
 }
