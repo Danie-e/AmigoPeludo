@@ -11,10 +11,11 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("36d3a736-fac0-4517-87a9-61b04383000c")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("AmigoPeludo")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+19ab94500b326d16ea3f172081ba0372caa713af")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4d9bbecdf3e3754e47567a9175b0eff75e3c8ce0")]
 [assembly: System.Reflection.AssemblyProductAttribute("AmigoPeludo")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AmigoPeludo")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

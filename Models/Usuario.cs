@@ -1,4 +1,6 @@
-﻿namespace AmigoPeludo.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace AmigoPeludo.Models
 {
     public class Usuario
     {
@@ -8,6 +10,7 @@
         public string nome { get => _nome; set=> _nome =value; }
         public DateTime _dataNascimento;
         public DateTime dataNascimento { get => _dataNascimento; set => _dataNascimento = value; }
+
         public string _senha;
         public string senha { get=> _senha; set=> _senha=value; }
         public Usuario()

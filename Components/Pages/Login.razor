@@ -24,9 +24,10 @@
             </div>
             <div class="mb-3">
                 <label for="senha" class="form-label">Digite aqui sua senha:</label>
-                <InputText id="senha" @bind-Value="usuario.senha" class="form-control" />
+                <InputText type="password" id="senha" @bind-Value="usuario.senha" class="form-control" />
                 <ValidationMessage For="() => usuario.senha" class="text-danger" />
             </div>
+            <p>@mensagemLogin</p>
             <button type="submit" class="btn btn-primary">Login</button>
         </EditForm>
     </section>
@@ -48,7 +49,7 @@
             </div>
             <div class="mb-3">
                 <label for="senha" class="form-label">Digite aqui sua senha:</label>
-                <InputText id="senha" @bind-Value="usuario.senha" class="form-control" />
+                <InputText type="password" id="senha" @bind-Value="usuario.senha" class="form-control" />
                 <ValidationMessage For="() => usuario.senha" class="text-danger" />
             </div>
             <button type="submit" class="btn btn-primary">Criar conta</button>
@@ -62,9 +63,11 @@
     [SupplyParameterFromForm]
     public Usuario usuario { get; set; } = new();
 
+    string mensagemLogin = string.Empty;
+    UsuarioLogado user = UsuarioLogado.getInstance();
+
     public async Task AddUsuario()
     {
-        UsuarioLogado user = UsuarioLogado.getInstance();
         DB.Usuario.Add(usuario);
         await DB.SaveChangesAsync();
         user.EntrarPerfil(DB.Usuario.FirstOrDefault(a => a.nome.Equals(usuario.nome) && a.senha.Equals(usuario.senha)));
@@ -77,9 +80,12 @@
         var result = DB.Usuario.FirstOrDefault(a => a.nome.Equals(usuario.nome) && a.senha.Equals(usuario.senha));
         if (result != null)
         {
-            UsuarioLogado user=UsuarioLogado.getInstance();
             user.EntrarPerfil(result);
             NavigationManager.NavigateTo("/paginaInicial");
+        }
+        else
+        {
+            mensagemLogin = "Senha ou usuario invalidos.";
         }
     }
 

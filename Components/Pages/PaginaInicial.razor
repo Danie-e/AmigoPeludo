@@ -1,10 +1,8 @@
 ﻿@page "/paginaInicial"
 @rendermode InteractiveServer
-@using Microsoft.AspNetCore.Components.QuickGrid
 @inject AmigoPeludo.Data.AmigoPeludoContext DB
-@using AmigoPeludo.Models
 
-<PageTitle>Index</PageTitle>
+<PageTitle>Pagina Inicial</PageTitle>
 
   <div class="d-flex gap-3">
 @foreach (var pet in DB.Pet)

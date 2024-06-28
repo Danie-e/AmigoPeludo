@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "WXnev7GF1ip8sRrplf7OTmToFFha09kDXPvrCzDOOb4=",
+  "Hash": "FXAjwYU+XDCBjJyOjaPPIsK++7iHGuLL8+crK8EovC0=",
   "Source": "AmigoPeludo",
   "BasePath": "_content/AmigoPeludo",
   "Mode": "Default",
@@ -93,12 +93,12 @@
       "OriginalItemSpec": "C:\\Users\\Daniela\\source\\repos\\AmigoPeludo\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\AmigoPeludo.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\Daniela\\source\\repos\\AmigoPeludo\\wwwroot\\account_circle.png",
+      "Identity": "C:\\Users\\Daniela\\source\\repos\\AmigoPeludo\\wwwroot\\account_circle.svg",
       "SourceId": "AmigoPeludo",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Daniela\\source\\repos\\AmigoPeludo\\wwwroot\\",
       "BasePath": "_content/AmigoPeludo",
-      "RelativePath": "account_circle.png",
+      "RelativePath": "account_circle.svg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -109,7 +109,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\account_circle.png"
+      "OriginalItemSpec": "wwwroot\\account_circle.svg"
     },
     {
       "Identity": "C:\\Users\\Daniela\\source\\repos\\AmigoPeludo\\wwwroot\\app.css",
@@ -167,25 +167,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css.map"
-    },
-    {
-      "Identity": "C:\\Users\\Daniela\\source\\repos\\AmigoPeludo\\wwwroot\\favicon.png",
-      "SourceId": "AmigoPeludo",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Daniela\\source\\repos\\AmigoPeludo\\wwwroot\\",
-      "BasePath": "_content/AmigoPeludo",
-      "RelativePath": "favicon.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\favicon.png"
     },
     {
       "Identity": "C:\\Users\\Daniela\\source\\repos\\AmigoPeludo\\wwwroot\\pets.png",

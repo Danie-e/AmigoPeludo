@@ -5,8 +5,8 @@
       "PackagePath": "staticwebassets\\AmigoPeludo.bundle.scp.css"
     },
     {
-      "Id": "C:\\Users\\Daniela\\source\\repos\\AmigoPeludo\\wwwroot\\account_circle.png",
-      "PackagePath": "staticwebassets\\account_circle.png"
+      "Id": "C:\\Users\\Daniela\\source\\repos\\AmigoPeludo\\wwwroot\\account_circle.svg",
+      "PackagePath": "staticwebassets\\account_circle.svg"
     },
     {
       "Id": "C:\\Users\\Daniela\\source\\repos\\AmigoPeludo\\wwwroot\\app.css",
@@ -19,10 +19,6 @@
     {
       "Id": "C:\\Users\\Daniela\\source\\repos\\AmigoPeludo\\wwwroot\\bootstrap\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
-    },
-    {
-      "Id": "C:\\Users\\Daniela\\source\\repos\\AmigoPeludo\\wwwroot\\favicon.png",
-      "PackagePath": "staticwebassets\\favicon.png"
     },
     {
       "Id": "C:\\Users\\Daniela\\source\\repos\\AmigoPeludo\\wwwroot\\pets.png",

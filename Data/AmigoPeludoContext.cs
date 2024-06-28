@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using AmigoPeludo.Models;
 using Microsoft.EntityFrameworkCore;
-using AmigoPeludo.Models;
 
 namespace AmigoPeludo.Data
 {
@@ -15,6 +11,6 @@ namespace AmigoPeludo.Data
         }
 
         public DbSet<Usuario> Usuario { get; set; } = default!;
-        public DbSet<AmigoPeludo.Models.Pet> Pet { get; set; } = default!;
+        public DbSet<Pet> Pet { get; set; } = default!;
     }
 }

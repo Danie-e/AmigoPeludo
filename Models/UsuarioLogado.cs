@@ -13,9 +13,7 @@
             }
             return instance;
         }
-        public void registrarPet() { }
-        public void editarPerfil() { }
-        public void deletarPerfil() { }
+     
         public void EntrarPerfil(Usuario usuario)
         {
             instance.id = usuario.id;
